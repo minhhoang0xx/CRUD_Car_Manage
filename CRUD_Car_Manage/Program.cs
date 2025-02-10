@@ -1,9 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using CRUD_Car_Manage.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<CarContext>(options =>
+	options.UseSqlServer(builder.Configuration.GetConnectionString("CarContext") ?? throw new InvalidOperationException("Connection' not found.")));
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -15,6 +19,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
 
 app.UseHttpsRedirection();
 
