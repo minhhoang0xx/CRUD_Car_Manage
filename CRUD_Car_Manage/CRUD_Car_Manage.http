@@ -1,0 +1,6 @@
+@CRUD_Car_Manage_HostAddress = http://localhost:5275
+
+GET {{CRUD_Car_Manage_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
