@@ -5,12 +5,11 @@
     "version": "1.0"
   },
   "paths": {
-    "/WeatherForecast": {
+    "/api/Car/getAllCar": {
       "get": {
         "tags": [
-          "WeatherForecast"
+          "Car"
         ],
-        "operationId": "GetWeatherForecast",
         "responses": {
           "200": {
             "description": "OK",
@@ -19,7 +18,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
+                    "$ref": "#/components/schemas/Car"
                   }
                 }
               },
@@ -27,7 +26,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
+                    "$ref": "#/components/schemas/Car"
                   }
                 }
               },
@@ -35,8 +34,96 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
+                    "$ref": "#/components/schemas/Car"
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Car/getCar/{id}": {
+      "get": {
+        "tags": [
+          "Car"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Car"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Car"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Car"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Car/addCart": {
+      "post": {
+        "tags": [
+          "Car"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Car"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Car"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Car"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Car"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Car"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Car"
                 }
               }
             }
@@ -47,23 +134,26 @@
   },
   "components": {
     "schemas": {
-      "WeatherForecast": {
+      "Car": {
         "type": "object",
         "properties": {
-          "date": {
-            "type": "string",
-            "format": "date"
-          },
-          "temperatureC": {
+          "id": {
             "type": "integer",
             "format": "int32"
           },
-          "temperatureF": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
+          "bien_So_Xe": {
+            "type": "string",
+            "nullable": true
           },
-          "summary": {
+          "loai_Xe": {
+            "type": "string",
+            "nullable": true
+          },
+          "ngay_Tao": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "trang_Thai": {
             "type": "string",
             "nullable": true
           }
