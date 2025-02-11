@@ -40,7 +40,7 @@ namespace CRUD_Car_Manage.Controllers
 			}
 		
 		}
-		[HttpPost("addCart")]
+		[HttpPost("addCar")]
 		public ActionResult<Car> addCar([FromBody]Car car) 
 		{
 			if (car == null)
@@ -51,6 +51,35 @@ namespace CRUD_Car_Manage.Controllers
 			_context.SaveChanges();
 			return CreatedAtAction(nameof(GetCar), new { id = car.ID }, car);
 			// dùng để có thể trả lại url xe mới tạo thông qua việc gán id vào url
+		}
+
+		[HttpDelete("deletaCar/{id}")]
+		public ActionResult DeleteCar(int id) 
+		{
+			if(_context.Cars.Find(id) == null)
+			{
+				return NotFound(); // 404
+			}
+			_context.Cars.Remove(_context.Cars.Find(id));
+			_context.SaveChanges();
+			return Ok("delete successfully!");
+		}
+		[HttpPut("updateCar/{id}")]
+		public ActionResult UpdateCar(int id, [FromBody]Car car)
+		{
+			var obj = _context.Cars.Find(id);
+			if (obj == null) 
+			{
+				return NotFound();
+			}
+			obj.Bien_So_Xe = car.Bien_So_Xe;
+			obj.Loai_Xe = car.Loai_Xe;
+			obj.Ngay_Tao = car.Ngay_Tao;
+			obj.Trang_Thai = car.Trang_Thai;
+
+			_context.Cars.Update(obj);
+			_context.SaveChanges();
+			return Ok(obj);
 		}
 
 
