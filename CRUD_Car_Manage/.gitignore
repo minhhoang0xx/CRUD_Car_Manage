@@ -1,3 +1,10 @@
+
 .vs/
+*.suo
+*.user
+*.cache
+*.pdb
+*.exe
+
 bin/
 obj/

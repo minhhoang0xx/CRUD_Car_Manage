@@ -107,5 +107,37 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CRUD_Car_Manage.Controllers.DriverController",
+    "Method": "GetAllCar",
+    "RelativePath": "api/Driver/getAllcar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "car",
+        "Type": "CRUD_Car_Manage.Model.Car",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CRUD_Car_Manage.Controllers.DriverController",
+    "Method": "TakeCar",
+    "RelativePath": "api/Driver/takecar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

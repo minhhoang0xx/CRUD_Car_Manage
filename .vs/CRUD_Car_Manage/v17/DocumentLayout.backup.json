@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|d:\\tai lieu\\study\\thuc tap\\project\\crud_car_manage\\crud_car_manage\\migrations\\20250211020325_driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|solutionrelative:crud_car_manage\\migrations\\20250211020325_driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|d:\\tai lieu\\study\\thuc tap\\project\\crud_car_manage\\crud_car_manage\\data\\carcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|solutionrelative:crud_car_manage\\data\\carcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|d:\\tai lieu\\study\\thuc tap\\project\\crud_car_manage\\crud_car_manage\\model\\driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|solutionrelative:crud_car_manage\\model\\driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|d:\\tai lieu\\study\\thuc tap\\project\\crud_car_manage\\crud_car_manage\\model\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|solutionrelative:crud_car_manage\\model\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|d:\\tai lieu\\study\\thuc tap\\project\\crud_car_manage\\crud_car_manage\\controllers\\drivercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|solutionrelative:crud_car_manage\\controllers\\drivercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|d:\\tai lieu\\study\\thuc tap\\project\\crud_car_manage\\crud_car_manage\\controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,8 +15,20 @@
       "RelativeMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|solutionrelative:crud_car_manage\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|d:\\tai lieu\\study\\thuc tap\\project\\crud_car_manage\\crud_car_manage\\model\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|solutionrelative:crud_car_manage\\model\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|d:\\tai lieu\\study\\thuc tap\\project\\crud_car_manage\\crud_car_manage\\model\\driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|solutionrelative:crud_car_manage\\model\\driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|d:\\tai lieu\\study\\thuc tap\\project\\crud_car_manage\\crud_car_manage\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|solutionrelative:crud_car_manage\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|d:\\tai lieu\\study\\thuc tap\\project\\crud_car_manage\\crud_car_manage\\data\\carcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|solutionrelative:crud_car_manage\\data\\carcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BD7E6F38-3C55-4EA8-98D3-5E8595887C07}|CRUD_Car_Manage\\CRUD_Car_Manage.csproj|d:\\tai lieu\\study\\thuc tap\\project\\crud_car_manage\\crud_car_manage\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -47,45 +47,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20250211020325_Driver.cs",
-              "DocumentMoniker": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\CRUD_Car_Manage\\Migrations\\20250211020325_Driver.cs",
-              "RelativeDocumentMoniker": "CRUD_Car_Manage\\Migrations\\20250211020325_Driver.cs",
-              "ToolTip": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\CRUD_Car_Manage\\Migrations\\20250211020325_Driver.cs",
-              "RelativeToolTip": "CRUD_Car_Manage\\Migrations\\20250211020325_Driver.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Title": "DriverController.cs",
+              "DocumentMoniker": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\CRUD_Car_Manage\\Controllers\\DriverController.cs",
+              "RelativeDocumentMoniker": "CRUD_Car_Manage\\Controllers\\DriverController.cs",
+              "ToolTip": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\CRUD_Car_Manage\\Controllers\\DriverController.cs*",
+              "RelativeToolTip": "CRUD_Car_Manage\\Controllers\\DriverController.cs*",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T02:03:26.281Z",
+              "WhenOpened": "2025-02-11T02:12:27.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CarController.cs",
+              "DocumentMoniker": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\CRUD_Car_Manage\\Controllers\\CarController.cs",
+              "RelativeDocumentMoniker": "CRUD_Car_Manage\\Controllers\\CarController.cs",
+              "ToolTip": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\CRUD_Car_Manage\\Controllers\\CarController.cs*",
+              "RelativeToolTip": "CRUD_Car_Manage\\Controllers\\CarController.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-10T06:07:35.06Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Driver.cs",
-              "DocumentMoniker": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\CRUD_Car_Manage\\Model\\Driver.cs",
-              "RelativeDocumentMoniker": "CRUD_Car_Manage\\Model\\Driver.cs",
-              "ToolTip": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\CRUD_Car_Manage\\Model\\Driver.cs",
-              "RelativeToolTip": "CRUD_Car_Manage\\Model\\Driver.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T01:38:52.836Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": ".gitignore",
               "DocumentMoniker": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\CRUD_Car_Manage\\.gitignore",
               "RelativeDocumentMoniker": "CRUD_Car_Manage\\.gitignore",
               "ToolTip": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\CRUD_Car_Manage\\.gitignore",
               "RelativeToolTip": "CRUD_Car_Manage\\.gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-02-10T10:42:11.1Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "CarContext.cs",
               "DocumentMoniker": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\CRUD_Car_Manage\\Data\\CarContext.cs",
               "RelativeDocumentMoniker": "CRUD_Car_Manage\\Data\\CarContext.cs",
@@ -93,18 +93,17 @@
               "RelativeToolTip": "CRUD_Car_Manage\\Data\\CarContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T07:10:50.864Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T07:10:50.864Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\CRUD_Car_Manage\\Program.cs",
               "RelativeDocumentMoniker": "CRUD_Car_Manage\\Program.cs",
               "ToolTip": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\CRUD_Car_Manage\\Program.cs",
               "RelativeToolTip": "CRUD_Car_Manage\\Program.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABwAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-10T07:08:12.429Z"
             },
@@ -136,15 +135,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "CarController.cs",
-              "DocumentMoniker": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\CRUD_Car_Manage\\Controllers\\CarController.cs",
-              "RelativeDocumentMoniker": "CRUD_Car_Manage\\Controllers\\CarController.cs",
-              "ToolTip": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\CRUD_Car_Manage\\Controllers\\CarController.cs",
-              "RelativeToolTip": "CRUD_Car_Manage\\Controllers\\CarController.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAowFQAAAAAAAAAAAAAAA==",
+              "Title": "Driver.cs",
+              "DocumentMoniker": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\CRUD_Car_Manage\\Model\\Driver.cs",
+              "RelativeDocumentMoniker": "CRUD_Car_Manage\\Model\\Driver.cs",
+              "ToolTip": "D:\\Tai Lieu\\STUDY\\Thuc tap\\Project\\CRUD_Car_Manage\\CRUD_Car_Manage\\Model\\Driver.cs",
+              "RelativeToolTip": "CRUD_Car_Manage\\Model\\Driver.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T06:07:35.06Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T01:38:52.836Z"
             }
           ]
         }
