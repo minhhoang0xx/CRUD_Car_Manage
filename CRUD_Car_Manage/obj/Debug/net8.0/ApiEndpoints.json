@@ -110,15 +110,15 @@
   },
   {
     "ContainingType": "CRUD_Car_Manage.Controllers.DriverController",
-    "Method": "GetAllCar",
-    "RelativePath": "api/Driver/getAllcar",
-    "HttpMethod": "GET",
+    "Method": "AddDriver",
+    "RelativePath": "api/Driver/addDriver",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "car",
-        "Type": "CRUD_Car_Manage.Model.Car",
+        "Name": "driver",
+        "Type": "CRUD_Car_Manage.Model.Driver",
         "IsRequired": true
       }
     ],
@@ -126,9 +126,9 @@
   },
   {
     "ContainingType": "CRUD_Car_Manage.Controllers.DriverController",
-    "Method": "TakeCar",
-    "RelativePath": "api/Driver/takecar",
-    "HttpMethod": "GET",
+    "Method": "DeleteDriver",
+    "RelativePath": "api/Driver/deleteDriver",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -136,6 +136,59 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CRUD_Car_Manage.Controllers.DriverController",
+    "Method": "GetAllCar",
+    "RelativePath": "api/Driver/getAllDriver",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "driver",
+        "Type": "CRUD_Car_Manage.Model.Driver",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CRUD_Car_Manage.Controllers.DriverController",
+    "Method": "GetDriver",
+    "RelativePath": "api/Driver/getDriver/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CRUD_Car_Manage.Controllers.DriverController",
+    "Method": "UpdateDriver",
+    "RelativePath": "api/Driver/updateDriver",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "driver",
+        "Type": "CRUD_Car_Manage.Model.Driver",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

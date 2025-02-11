@@ -196,7 +196,7 @@
         }
       }
     },
-    "/api/Driver/getAllcar": {
+    "/api/Driver/getAllDriver": {
       "get": {
         "tags": [
           "Driver"
@@ -205,17 +205,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Car"
+                "$ref": "#/components/schemas/Driver"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Car"
+                "$ref": "#/components/schemas/Driver"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Car"
+                "$ref": "#/components/schemas/Driver"
               }
             }
           }
@@ -227,8 +227,62 @@
         }
       }
     },
-    "/api/Driver/takecar": {
+    "/api/Driver/getDriver/{id}": {
       "get": {
+        "tags": [
+          "Driver"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Driver/addDriver": {
+      "post": {
+        "tags": [
+          "Driver"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Driver"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Driver"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Driver"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Driver/deleteDriver": {
+      "post": {
         "tags": [
           "Driver"
         ],
@@ -242,6 +296,47 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Driver/updateDriver": {
+      "put": {
+        "tags": [
+          "Driver"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Driver"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Driver"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Driver"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -272,6 +367,31 @@
             "format": "date-time"
           },
           "trang_Thai": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Driver": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "carId": {
+            "$ref": "#/components/schemas/Car"
+          },
+          "d_Thoi_Gian_Tao": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "d_Trang_Thai": {
             "type": "string",
             "nullable": true
           }
