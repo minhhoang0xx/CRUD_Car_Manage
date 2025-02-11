@@ -20,6 +20,7 @@ namespace CRUD_Car_Manage.Controllers
 			var allCar = _context.Cars.ToList();
 			return Ok(allCar);
 		}
+		[HttpGet("takecar")]
 		public IActionResult TakeCar(int id)
 		{
 			var obj = _context.Cars.Find(id);
