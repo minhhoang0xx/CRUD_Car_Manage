@@ -52,11 +52,11 @@ namespace CRUD_Car_Manage.Migrations
 
             modelBuilder.Entity("CRUD_Car_Manage.Model.Driver", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<DateTime>("D_Thoi_Gian_Tao")
                         .HasColumnType("datetime2");
@@ -65,29 +65,57 @@ namespace CRUD_Car_Manage.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("carIdID")
-                        .HasColumnType("int");
-
                     b.Property<string>("username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("carIdID");
+                    b.HasKey("ID");
 
                     b.ToTable("Drivers");
                 });
 
-            modelBuilder.Entity("CRUD_Car_Manage.Model.Driver", b =>
+            modelBuilder.Entity("CRUD_Car_Manage.Model.DriverCar", b =>
                 {
-                    b.HasOne("CRUD_Car_Manage.Model.Car", "carId")
-                        .WithMany()
-                        .HasForeignKey("carIdID")
+                    b.Property<int>("DriverId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.HasKey("DriverId", "CarId");
+
+                    b.HasIndex("CarId");
+
+                    b.ToTable("DriverCars");
+                });
+
+            modelBuilder.Entity("CRUD_Car_Manage.Model.DriverCar", b =>
+                {
+                    b.HasOne("CRUD_Car_Manage.Model.Car", "Car")
+                        .WithMany("DriverCars")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("CRUD_Car_Manage.Model.Driver", "Driver")
+                        .WithMany("DriverCars")
+                        .HasForeignKey("DriverId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("carId");
+                    b.Navigation("Car");
+
+                    b.Navigation("Driver");
+                });
+
+            modelBuilder.Entity("CRUD_Car_Manage.Model.Car", b =>
+                {
+                    b.Navigation("DriverCars");
+                });
+
+            modelBuilder.Entity("CRUD_Car_Manage.Model.Driver", b =>
+                {
+                    b.Navigation("DriverCars");
                 });
 #pragma warning restore 612, 618
         }
