@@ -7,7 +7,6 @@
 		public string Loai_Xe { get; set; }
 		public DateTime Ngay_Tao { get; set; }
 		public string Trang_Thai { get; set; }
-
 		// Mqh n`- n`
 		public ICollection<DriverCar> DriverCars { get; set; }
 

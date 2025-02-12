@@ -11,6 +11,8 @@ namespace CRUD_Car_Manage.Data
 
 		public DbSet<DriverCar> DriverCars { get; set; }
 
+
+
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		// OnModelCreating la noi cau hinh cac mqh
 		// modelBuilder cung cap mot API dung de cau hinh

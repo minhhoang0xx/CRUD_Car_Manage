@@ -39,36 +39,39 @@ namespace CRUD_Car_Manage.Controllers
 			return Ok(obj);	
 		}
 		[HttpPost("addDriver")]
-		public ActionResult AddDriver([FromBody]DriverCar dc)
+		public ActionResult AddDriver([FromBody]AddDriver aDriver)
 		{
-			if (dc == null)
+			if (aDriver == null || aDriver.ListCarId == null)
 			{
 				return BadRequest("Input Invalid!");
-			}
-			// kiem tra xe co ton tai khong
-			var car = _context.Cars.Find(dc.CarId);
-			if ( car == null)
-			{
-				return BadRequest("not Exist");
 			}
 			//them tai xe moi
 			var newDriver = new Driver
 			{
-				username = dc.Driver.username,
-				D_Thoi_Gian_Tao = dc.Driver.D_Thoi_Gian_Tao,
-				D_Trang_Thai = dc.Driver.D_Trang_Thai
+				username = aDriver.username,
+				D_Thoi_Gian_Tao = aDriver.D_Thoi_Gian_Tao,
+				D_Trang_Thai = aDriver.D_Trang_Thai
 			};
 			_context.Drivers.Add(newDriver);
 			_context.SaveChanges();
-			// them luon vao bang DriverCar
-			var driverCar = new DriverCar
-			{
-				DriverId = newDriver.ID,
-				CarId = dc.CarId
-			};
-			_context.DriverCars.Add(driverCar);
-			_context.SaveChanges();
 
+			// gan n` xe
+			foreach(var carID in aDriver.ListCarId)
+			{
+				var car = _context.Cars.Find(carID);
+				if (car == null)
+				{
+					return BadRequest($"CarID = {carID} khong exist");
+				}
+				// them luon vao bang DriverCar
+				var driverCar = new DriverCar
+				{
+					DriverId = newDriver.ID,
+					CarId = carID,
+				};
+				_context.DriverCars.Add(driverCar);
+			}
+			_context.SaveChanges();
 			return CreatedAtAction(nameof(GetDriver), new { id = newDriver.ID }, newDriver);
 		}
 		[HttpDelete("deleteDriver/{id}")]
