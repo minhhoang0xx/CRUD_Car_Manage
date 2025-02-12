@@ -117,8 +117,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "driver",
-        "Type": "CRUD_Car_Manage.Model.Driver",
+        "Name": "dc",
+        "Type": "CRUD_Car_Manage.Model.DriverCar",
         "IsRequired": true
       }
     ],
@@ -127,30 +127,14 @@
   {
     "ContainingType": "CRUD_Car_Manage.Controllers.DriverController",
     "Method": "DeleteDriver",
-    "RelativePath": "api/Driver/deleteDriver",
-    "HttpMethod": "POST",
+    "RelativePath": "api/Driver/deleteDriver/{id}",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "CRUD_Car_Manage.Controllers.DriverController",
-    "Method": "GetAllCar",
-    "RelativePath": "api/Driver/getAllDriver",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "driver",
-        "Type": "CRUD_Car_Manage.Model.Driver",
         "IsRequired": true
       }
     ],
@@ -174,8 +158,8 @@
   },
   {
     "ContainingType": "CRUD_Car_Manage.Controllers.DriverController",
-    "Method": "UpdateDriver",
-    "RelativePath": "api/Driver/updateDriver",
+    "Method": "updateCarOfDriver",
+    "RelativePath": "api/Driver/updateCarOfDriver/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -183,7 +167,28 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
+      },
+      {
+        "Name": "carIDs",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CRUD_Car_Manage.Controllers.DriverController",
+    "Method": "UpdateDriver",
+    "RelativePath": "api/Driver/updateDriver/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
       },
       {
         "Name": "driver",

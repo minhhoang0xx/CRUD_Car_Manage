@@ -196,37 +196,6 @@
         }
       }
     },
-    "/api/Driver/getAllDriver": {
-      "get": {
-        "tags": [
-          "Driver"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Driver"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Driver"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Driver"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/Driver/getDriver/{id}": {
       "get": {
         "tags": [
@@ -259,6 +228,71 @@
           "content": {
             "application/json": {
               "schema": {
+                "$ref": "#/components/schemas/DriverCar"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DriverCar"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DriverCar"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Driver/deleteDriver/{id}": {
+      "delete": {
+        "tags": [
+          "Driver"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Driver/updateDriver/{id}": {
+      "put": {
+        "tags": [
+          "Driver"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
                 "$ref": "#/components/schemas/Driver"
               }
             },
@@ -281,29 +315,7 @@
         }
       }
     },
-    "/api/Driver/deleteDriver": {
-      "post": {
-        "tags": [
-          "Driver"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Driver/updateDriver": {
+    "/api/Driver/updateCarOfDriver/{id}": {
       "put": {
         "tags": [
           "Driver"
@@ -311,7 +323,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -322,17 +335,29 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Driver"
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Driver"
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Driver"
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
               }
             }
           }
@@ -369,6 +394,13 @@
           "trang_Thai": {
             "type": "string",
             "nullable": true
+          },
+          "driverCars": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DriverCar"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -384,9 +416,6 @@
             "type": "string",
             "nullable": true
           },
-          "carId": {
-            "$ref": "#/components/schemas/Car"
-          },
           "d_Thoi_Gian_Tao": {
             "type": "string",
             "format": "date-time"
@@ -394,6 +423,33 @@
           "d_Trang_Thai": {
             "type": "string",
             "nullable": true
+          },
+          "driverCars": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DriverCar"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DriverCar": {
+        "type": "object",
+        "properties": {
+          "driverId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "driver": {
+            "$ref": "#/components/schemas/Driver"
+          },
+          "carId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "car": {
+            "$ref": "#/components/schemas/Car"
           }
         },
         "additionalProperties": false
