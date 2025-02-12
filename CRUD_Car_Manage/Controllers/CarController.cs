@@ -200,7 +200,7 @@ namespace CRUD_Car_Manage.Controllers
 					command.ExecuteNonQuery();
 				}
 			}
-			return Ok("Update Successfully");
+			return CreatedAtAction(nameof(GetCar), new { id = car.ID }, car);
 		} 
 
 

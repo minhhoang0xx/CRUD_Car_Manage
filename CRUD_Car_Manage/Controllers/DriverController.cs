@@ -3,6 +3,7 @@ using CRUD_Car_Manage.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Driver = CRUD_Car_Manage.Model.Driver;
 
 namespace CRUD_Car_Manage.Controllers
 {
@@ -44,17 +45,33 @@ namespace CRUD_Car_Manage.Controllers
 			{
 				return BadRequest("Input Invalid!");
 			}
-			var driver = _context.Drivers.Find(dc.DriverId);
+			// kiem tra xe co ton tai khong
 			var car = _context.Cars.Find(dc.CarId);
-			if (driver == null || car == null)
+			if ( car == null)
 			{
 				return BadRequest("not Exist");
 			}
-			_context.DriverCars.Add(dc);
+			//them tai xe moi
+			var newDriver = new Driver
+			{
+				username = dc.Driver.username,
+				D_Thoi_Gian_Tao = dc.Driver.D_Thoi_Gian_Tao,
+				D_Trang_Thai = dc.Driver.D_Trang_Thai
+			};
+			_context.Drivers.Add(newDriver);
 			_context.SaveChanges();
-			return CreatedAtAction(nameof(AddDriver),new { id = dc.DriverId }, dc);
+			// them luon vao bang DriverCar
+			var driverCar = new DriverCar
+			{
+				DriverId = newDriver.ID,
+				CarId = dc.CarId
+			};
+			_context.DriverCars.Add(driverCar);
+			_context.SaveChanges();
+
+			return CreatedAtAction(nameof(GetDriver), new { id = newDriver.ID }, newDriver);
 		}
-		[HttpPost("deleteDriver")]
+		[HttpDelete("deleteDriver/{id}")]
 		public ActionResult DeleteDriver(int id)
 		{
 			var deleteDriver = _context.Drivers
@@ -74,21 +91,46 @@ namespace CRUD_Car_Manage.Controllers
 			_context.SaveChanges();
 			return Ok("Delete Success!!!");
 		}
-		[HttpPut("updateDriver")]
+		[HttpPut("updateDriver/{id}")]
 		public ActionResult UpdateDriver(int id, [FromBody] Driver driver)
 		{
 			var updateDriver = _context.Drivers.Find(id);
-			if(updateDriver == null)
+			if (updateDriver == null)
 			{
 				return BadRequest("No Driver exist");
 			}
 			updateDriver.username = driver.username;
-			updateDriver.carId = driver.carId;
 			updateDriver.D_Thoi_Gian_Tao = driver.D_Thoi_Gian_Tao;
 			updateDriver.D_Trang_Thai = driver.D_Trang_Thai;
 			_context.Drivers.Update(updateDriver);
 			_context.SaveChanges();
 			return Ok(updateDriver);
+		}
+		[HttpPut("updateCarOfDriver/{id}")]
+		public ActionResult updateCarOfDriver(int id, [FromBody] List<int> carIDs)
+		{
+			var driver = _context.Drivers
+											.Include(d => d.DriverCars)
+											.FirstOrDefault(d => d.ID == id);
+			if (driver == null)
+			{
+				return BadRequest("No Driver exist");
+			}
+			// xoa het danh sach xe
+			_context.DriverCars.RemoveRange(driver.DriverCars);
+			// Thêm danh sách xe mới
+			foreach (var carID in carIDs)
+			{
+				var car = _context.Cars.Find(carID);
+				if (car != null)
+				{
+					_context.DriverCars.Add(new DriverCar { DriverId = id, CarId = carID });
+				}
+			}
+
+			_context.SaveChanges();
+			return Ok("Driver's cars updated!!!");
+
 		}
 	}
 }

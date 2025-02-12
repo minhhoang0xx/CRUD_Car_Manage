@@ -22,14 +22,16 @@ namespace CRUD_Car_Manage.Data
 				.HasKey(dc => new { dc.DriverId, dc.CarId }); // cap khoa chinh cua DriverCar ket hop cua DriverId va CarId
 
 			modelBuilder.Entity<DriverCar>()
-				.HasOne(dc => dc.Driver) 
+				.HasOne(dc => dc.Driver)
 				.WithMany(d => d.DriverCars)
-				.HasForeignKey(dc => dc.DriverId); // DriverId trong DriverCar la khoa ngoai. tham chieu den Model Driver
+				.HasForeignKey(dc => dc.DriverId) // DriverId trong DriverCar la khoa ngoai. tham chieu den Model Driver
+				.OnDelete(DeleteBehavior.Cascade);
 
 			modelBuilder.Entity<DriverCar>()
 				.HasOne(dc => dc.Car)
 				.WithMany(c => c.DriverCars)
-				.HasForeignKey(dc => dc.CarId);
+				.HasForeignKey(dc => dc.CarId)
+				.OnDelete(DeleteBehavior.Restrict);
 		}
 	}
 }
