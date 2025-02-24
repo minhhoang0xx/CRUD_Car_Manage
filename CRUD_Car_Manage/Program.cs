@@ -12,7 +12,25 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+	options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+});
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy(name: MyAllowSpecificOrigins,
+		policy =>
+		{
+			policy.WithOrigins("http://localhost:3000") 
+				  .AllowAnyHeader()
+				  .AllowAnyMethod();
+		});
+});
+
+
 var app = builder.Build();
+app.UseCors(MyAllowSpecificOrigins);
 
 //Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

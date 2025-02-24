@@ -31,11 +31,11 @@ namespace CRUD_Car_Manage.Controllers
 				Connection.Open();
 				using (var command = Connection.CreateCommand())
 				{
-					command.CommandText = "GetAllCar";// kết nối với stored procedure ở SQL Server
+					command.CommandText = "GetAllCar";
 					command.CommandType = CommandType.StoredProcedure;
-					using (var reader = command.ExecuteReader()) // chỉ dùng để đọc dữ liệu, không hỗ trợ tương tác
+					using (var reader = command.ExecuteReader()) 
 					{
-						while (reader.Read()) // duyệt từng dòng dữ liệu
+						while (reader.Read()) 
 						{
 							var car = new Car
 							{
@@ -101,21 +101,33 @@ namespace CRUD_Car_Manage.Controllers
 		//	return CreatedAtAction(nameof(GetCar), new { id = car.ID }, car);
 		//	// dùng để có thể trả lại url xe mới tạo thông qua việc gán id vào url
 		//}
-		public ActionResult<Car> addCar([FromBody]Car car) // Frombody khi dữ liệu đến từ request body (JSON/XML)
+		public ActionResult<Car> AddCar([FromBody]CarDto carDto) // Frombody khi dữ liệu đến từ request body (JSON/XML)
 														   // FromQuerry khi dữ liệu từ URL(String)
 														   // FromRoute -- route
 														   // FromHeader -- HTTP Header
 		{
-			if(car == null)
+			if(carDto == null)
 			{
-				return BadRequest("input is not validated");
+				return BadRequest("nhap..");
 			}
+			if (string.IsNullOrEmpty(carDto.Bien_So_Xe) || string.IsNullOrEmpty(carDto.Loai_Xe) ||
+				string.IsNullOrEmpty(carDto.Trang_Thai) || carDto.Ngay_Tao == default)
+			{
+				return BadRequest("Thiếu một trường");
+			}
+			var car = new Car
+				{
+					Bien_So_Xe = carDto.Bien_So_Xe,
+					Loai_Xe = carDto.Loai_Xe,
+					Ngay_Tao = carDto.Ngay_Tao,
+					Trang_Thai = carDto.Trang_Thai
+					};
 			using (var connection = _context.Database.GetDbConnection())
 			{
 				connection.Open();
 				using (var command = connection.CreateCommand())
 				{
-					command.CommandText = "AddCar";
+					command.CommandText = "CreateCar";
 					command.CommandType = CommandType.StoredProcedure;
 					// Add thông qua Stored Procedure
 					command.Parameters.Add(new SqlParameter("@Bien_So_Xe", car.Bien_So_Xe));
@@ -126,11 +138,11 @@ namespace CRUD_Car_Manage.Controllers
 					command.ExecuteNonQuery(); // thuc hien stored procedure
 				}
 			}
-			return CreatedAtAction(nameof(GetCar), new {id = car.ID},car );
+			return Created("Car added successfully.", null);
 			// dùng để có thể trả lại url xe mới tạo thông qua việc gán id vào url
 		}
 
-		[HttpDelete("deletaCar/{id}")]
+		[HttpDelete("deleteCar/{id}")]
 		//public ActionResult DeleteCar(int id) 
 		//{
 		//	if(_context.Cars.Find(id) == null)
@@ -156,7 +168,7 @@ namespace CRUD_Car_Manage.Controllers
 					command.CommandText = "DeleteCar";
 					command.CommandType = CommandType.StoredProcedure;
 
-					command.Parameters.Add(new SqlParameter("@id",id));
+					command.Parameters.Add(new SqlParameter("@ID",id));
 					command.ExecuteNonQuery ();
 				}
 			}
@@ -180,9 +192,14 @@ namespace CRUD_Car_Manage.Controllers
 		//	return Ok(obj);
 		//}
 
-		public ActionResult UpdateCar(int id, [FromBody] Car car)
+		public ActionResult UpdateCar(int id, [FromBody] CarDto carDto)
 		{
-			if (car == null) return BadRequest("Car is not existing");
+			if (carDto == null) return BadRequest("không có xe");
+			if (string.IsNullOrEmpty(carDto.Bien_So_Xe) || string.IsNullOrEmpty(carDto.Loai_Xe) ||
+				string.IsNullOrEmpty(carDto.Trang_Thai) || carDto.Ngay_Tao == default)
+			{
+				return BadRequest("Thiếu một trường");
+			}
 			using (var connection = _context.Database.GetDbConnection())
 			{
 				connection.Open();
@@ -191,16 +208,16 @@ namespace CRUD_Car_Manage.Controllers
 					command.CommandText = "UpdateCar";
 					command.CommandType = CommandType.StoredProcedure;
 
-					command.Parameters.Add(new SqlParameter("@id", id));
-					command.Parameters.Add(new SqlParameter("@Bien_So_Xe", car.Bien_So_Xe));
-					command.Parameters.Add(new SqlParameter("@Loai_Xe", car.Loai_Xe));
-					command.Parameters.Add(new SqlParameter("@Ngay_Tao", car.Ngay_Tao));
-					command.Parameters.Add(new SqlParameter("@Trang_Thai", car.Trang_Thai));
+					command.Parameters.Add(new SqlParameter("@ID", id));
+					command.Parameters.Add(new SqlParameter("@Bien_So_Xe", carDto.Bien_So_Xe));
+					command.Parameters.Add(new SqlParameter("@Loai_Xe", carDto.Loai_Xe));
+					command.Parameters.Add(new SqlParameter("@Ngay_Tao", carDto.Ngay_Tao));
+					command.Parameters.Add(new SqlParameter("@Trang_Thai", carDto.Trang_Thai));
 
 					command.ExecuteNonQuery();
 				}
 			}
-			return CreatedAtAction(nameof(GetCar), new { id = car.ID }, car);
+			return NoContent();
 		} 
 
 

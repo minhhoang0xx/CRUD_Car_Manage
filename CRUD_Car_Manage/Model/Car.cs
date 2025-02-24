@@ -1,4 +1,6 @@
-﻿namespace CRUD_Car_Manage.Model
+﻿using Newtonsoft.Json;
+
+namespace CRUD_Car_Manage.Model
 {
 	public class Car
 	{
@@ -8,6 +10,7 @@
 		public DateTime Ngay_Tao { get; set; }
 		public string Trang_Thai { get; set; }
 		// Mqh n`- n`
+		[JsonIgnore]
 		public ICollection<DriverCar> DriverCars { get; set; }
 
 	}
