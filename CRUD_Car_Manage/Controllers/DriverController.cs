@@ -21,41 +21,20 @@ namespace CRUD_Car_Manage.Controllers
 		[HttpGet("getAllDriver")]
 		public ActionResult<IEnumerable<AddDriver>> GetAllDriver()
 		{
-
-
-			//var results = from d in _context.Drivers.AsQueryable()
-			//			  group d by d.ID into g
-			//			  select new AddDriver
-			//			  {
-			//				  DriverId = g.Key?.ToString(),
-			//				  Cars = g.ToList()
-			//			  };
-			//var joinQuery =
-			//from driver in _context.Drivers.AsQueryable()
-			//join dc in _context.DriverCars.AsQueryable() on driver.ID equals dc.DriverId
-			//join c in _context.Cars.AsQueryable() on dc.CarId equals c.ID
-			//group driver by driver.ID into grDriver
-			//select new 
-			//{
-			//	D_Thoi_Gian_Tao = grDriver.FirstOrDefault().D_Thoi_Gian_Tao,
-			//	D_Trang_Thai = grDriver.FirstOrDefault().D_Trang_Thai,
-			//	username = grDriver.FirstOrDefault().username,
-			//	//CarName = grDriver.FirstOrDefault().Bien_So_Xe,
-			//	ListCarId = grDriver.Select(x => x.DriverCars).ToList()
-			//};
-
-
 			var joinQuery =
 			from driver in _context.Drivers.AsQueryable()
-			join dc in _context.DriverCars.AsQueryable() on driver.ID equals dc.DriverId
-			join c in _context.Cars.AsQueryable() on dc.CarId equals c.ID
+			join dc in _context.DriverCars.AsQueryable() on driver.ID equals dc.DriverId into drivers
+			from dc in drivers.DefaultIfEmpty()
+			join c in _context.Cars.AsQueryable() on dc.CarId equals c.ID into cars
+			from c in cars.DefaultIfEmpty()
+			group c by new { driver.ID,driver.username, driver.D_Thoi_Gian_Tao, driver.D_Trang_Thai } into gr
 			select new AddDriver
 			{
-				ID = driver.ID,
-				D_Thoi_Gian_Tao = driver.D_Thoi_Gian_Tao,
-				D_Trang_Thai = driver.D_Trang_Thai,
-				username = driver.username,
-				CarName= c.Bien_So_Xe
+				ID = gr.Key.ID,
+				username = gr.Key.username,
+				D_Thoi_Gian_Tao = gr.Key.D_Thoi_Gian_Tao,
+				D_Trang_Thai = gr.Key.D_Trang_Thai,
+				CarName = string.Join(", ", gr.Select(x => x.Bien_So_Xe))
 			};
 			if (!joinQuery.Any())
 			{
@@ -91,7 +70,7 @@ namespace CRUD_Car_Manage.Controllers
 		[HttpPost("addDriver")]
 		public ActionResult AddDriver([FromBody] AddDriver aDriver)
 		{
-			if (aDriver.D_Trang_Thai == null || aDriver.ListCarId == null || aDriver.D_Thoi_Gian_Tao == null)
+			if (aDriver.D_Trang_Thai == null || aDriver.D_Thoi_Gian_Tao == null)
 			{
 				return BadRequest("Input Invalid!");
 			}
@@ -113,10 +92,6 @@ namespace CRUD_Car_Manage.Controllers
 			foreach (var carID in aDriver.ListCarId)
 			{
 				var car = _context.Cars.Find(carID);
-				if (car == null)
-				{
-					return BadRequest($"CarID = {carID} khong exist");
-				}
 				// them luon vao bang DriverCar
 				var driverCar = new DriverCar
 				{

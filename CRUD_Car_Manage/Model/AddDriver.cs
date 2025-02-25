@@ -7,6 +7,6 @@
 		public DateTime D_Thoi_Gian_Tao { get; set; }
 		public string D_Trang_Thai { get; set; }
 		public string? CarName { get; set; }
-		public List<int> ListCarId { get; set; }
+		public List<int>? ListCarId { get; set; }
 	}
 }
